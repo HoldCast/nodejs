@@ -1,5 +1,5 @@
 //-------------optfile.js-------------------------
-var  fs=  require('fs');
+var  fs =  require('fs');
 module.exports={
     readfile:function(path,recall){          //异步执行
         fs.readFile(path,  function  (err,  data)  {
@@ -8,7 +8,7 @@ module.exports={
             }else{
               //console.log(data.toString());
               recall(data);
-              console.log('异步读文件')
+              console.log('异步读文件');
               //res.write(data);
             }
         });
@@ -39,11 +39,11 @@ module.exports={
                 console.log(err);
                 return;
             }else{
-                console.log("输出文件");
-                    //res.writeHead(200,  {'Content-Type':'image/jpeg'});
-                    res.write(file,'binary');
-                    res.end();
+                console.log("图片");
+                res.writeHead(200,  {'Content-Type':'image/jpeg'});
+                res.write(file,'binary');
+                res.end();
             }
         });
     }
-}
+};
