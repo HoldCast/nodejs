@@ -1,0 +1,5 @@
+const http=require('http');
+const querystring=require('querystring'); //解析json字符串
+const fs = require('fs');//readFile writeFile
+const urlLib=require('url'); //var obj=urlLib.parse(req.url, true);
+
