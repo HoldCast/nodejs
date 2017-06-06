@@ -17,7 +17,7 @@ var server = http.createServer(function (req, res) {
     });
     req.on('end', function () {
         const POST = querystring.parse(str);
-
+        console.log(url,GET,POST);
         /*
          url——要什么
          GET——get数据
