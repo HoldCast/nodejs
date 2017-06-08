@@ -13,6 +13,7 @@
       oBtn.onclick=function (){
         ajax({
           url: '/login',
+          type: 'get',
           data: {user: oUser.value, pass: oPass.value},
           success: function (str){
             var json=eval('('+str+')');
@@ -34,5 +35,6 @@
     用户：<input type="text" id="user" /><br>
     密码：<input type="password" id="pass" /><br>
     <input type="button" value="登录" id="btn1" />
+    <div><img src="a.jpg" alt=""></div>
   </body>
 </html>

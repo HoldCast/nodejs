@@ -12,6 +12,7 @@ var users={
 };
 
 server.get('/login', function (req, res){
+  console.log(req.query);
   var user=req.query['user'];
   var pass=req.query['pass'];
 
