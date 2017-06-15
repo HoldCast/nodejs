@@ -90,7 +90,7 @@ http.createServer(function (req, res) {
 
 //模块的引用,创建,发布等,node8
 
-/**----------------------------------------------------------------------------------------------**/
+/**--------------------------------------------express--------------------------------------------------**/
 //express框架 node9
 const express = require('express'); //需要install
 var server = express();
@@ -161,6 +161,11 @@ server.use(bodyParser2.postData());
 server.use('/', function (req, res) {
     console.log(req.body);
 });
+
+/**--------------------------------------------cookie,session--------------------------------------------------**/
+
+
+
 
 
 
