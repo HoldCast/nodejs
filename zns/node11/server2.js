@@ -15,3 +15,6 @@ server.use('/', function (req, res){
 });
 
 server.listen(8080);
+
+
+//cookie可以向上可以解析(向下可以访问)

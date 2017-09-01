@@ -9,7 +9,7 @@ var server=express();
 //cookie
 server.use(cookieParser());
 server.use(cookieSession({
-  keys: ['aaa', 'bbb', 'ccc']
+  keys: ['aaa', 'bbb', 'ccc'] //强行加密
 }));
 
 server.use('/', function (req, res){
