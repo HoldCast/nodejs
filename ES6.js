@@ -132,6 +132,77 @@ p2.showJob();
 // </script>
 
 //9.promise
+var p1 = new Promise(function (resolve,reject) {
+    resolve('success'); //成功了调用
+    //reject('fail'); //失败了调用
+});
+
+p1.then(function (value) {
+    alert(value);   //success
+    return value + 1;
+},function (value) {
+    alert(value);   //fail
+    throw 'err';
+}).then(function (value) {
+    alert(value);   //success1
+}).catch(function (e) {
+    console.log(e); //err
+});
+//异步读取文件
+const fs = require('fs');
+fs.readFile('1.html',function (err,data) {
+    var p1 = new Promise(function (resolve,reject) {
+        if(err){
+            reject(err);
+        }else{
+            resolve(data.toString());
+        }
+    });
+    p1.then(function (value) {
+        console.log(value);
+    },function (value) {
+        console.log('err:'+value);
+    })
+});
+//all
+var p1 = new Promise();
+var p2 = new Promise();
+var pAll = Promise.all([p1,p2]).then(function (value) {
+    console.log(value); //p1.p2全部返回resolve,就进这里
+},function (value) {
+    console.log(value); //否则走这里
+});
+Promise.race([p1,p2]);  //返回的是最先能执行的promise
+Promise.reject().then();       //返回失败
+Promise.resolve().then();      //返回成功
+
+//10.Generrator -- 生成器(* yield)
+function* show() {
+    yield 1;    //yield本身没有返回值(undefined)
+    yield 2;
+    yield 3;
+    yield 4;
+    //return 5;
+}
+var res = show();
+console.log(res.next());//{value: 1, done: false}
+console.log(res.next());//{value: 2, done: false}
+console.log(res.next());//{value: 3, done: false}
+console.log(res.next());//{value: 4, done: false}
+console.log(res.next());//{value: undefined/5, done: true}
+//next可以带参数,给上一个yield值
+
+for(let v of show()){
+    console.log(v); //1,2,3,4
+}
+var json = {
+    *show(){
+        yield 1;    //yield本身没有返回值(undefined)
+        yield 2;
+        yield 3;
+        yield 4;
+    }
+};
 
 
 
