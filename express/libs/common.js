@@ -1,3 +1,4 @@
+//加密
 const crypto = require('crypto');
 
 module.exports = {
